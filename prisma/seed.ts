@@ -11,7 +11,7 @@ async function main() {
     },
   });
 
-  await prisma.link.createMany({
+  await prisma.post.createMany({
     data: posts,
   });
 }
