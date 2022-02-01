@@ -2,6 +2,16 @@
 ### Do not make changes to this file directly
 
 
+type Edge {
+  cursor: String
+  node: Post
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean
+}
+
 type Post {
   category: String
   description: String
@@ -13,7 +23,12 @@ type Post {
 }
 
 type Query {
-  posts: [Post]!
+  posts(after: String, first: Int): Response
+}
+
+type Response {
+  edges: [Edge]
+  pageInfo: PageInfo
 }
 
 enum Role {
